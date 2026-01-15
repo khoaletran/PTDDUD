@@ -39,12 +39,14 @@ const dogs = [
 ]; 
 
 //1
+console.log("----------");
 for(const dog of dogs){
     dog.recommendedFood = dog.weight ** 0.75 * 28;
 }
 console.log(dogs);
 
 //2
+console.log("----------");
 const sarahDog = dogs.find(dog => dog.owners.includes('Sarah'));
 
 if (sarahDog.curFood > sarahDog.recommendedFood) {
@@ -55,11 +57,9 @@ if (sarahDog.curFood > sarahDog.recommendedFood) {
     console.log("Chó của Sarah ăn đúng lượng khuyến nghị");
 }
 
-const checkFood = dog =>  {
-    curFood > recommendedFood * 0.9 && curFood < recommendedFood * 1.1 ? true : false
-}
 
 //3
+console.log("----------");
 const ownersEatTooMuch = [];
 const ownersEatTooLittle = [];
 
@@ -70,3 +70,33 @@ for (const dog of dogs ){
 console.log(ownersEatTooMuch);
 console.log(ownersEatTooLittle);
 
+//4
+console.log("----------");
+console.log(ownersEatTooMuch + " dogs eat too much");
+console.log(ownersEatTooLittle + " dogs eat too litte");
+
+//5
+console.log("----------");
+const checkFood_5 = dogs => {
+    for( const dog of dogs){
+        dog.curFood === dog.recommendedFood ? console.log(`${dog.owners} true`) : console.log(`${dog.owners} false`);
+    }
+}
+
+checkFood_5(dogs);
+
+//6
+console.log("----------");
+const checkFood = dog =>  {
+    dog.curFood > dog.recommendedFood * 0.9 && dog.curFood < dog.recommendedFood * 1.1 ? true : false
+}
+
+const checkFood_6 = dogs => {
+    for( const dog of dogs){
+        checkFood(dog) ? console.log(`${dog.owners} true`) : console.log(`${dog.owners} false`);
+    }
+}
+
+checkFood_6(dogs);
+
+//7
